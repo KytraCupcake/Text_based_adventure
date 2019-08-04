@@ -42,11 +42,11 @@ function generateMonsterSet (level, pRegion, descriptors, monsters){
         }
     }
 
-    for (let key1 in descriptors) {
-        if (descriptors[key1].min <= level && descriptors[key1].max >= level)
+    for (let key in descriptors) {
+        if (descriptors[key].min <= level && descriptors[key].max >= level)
         {
-            levelCheckedDescriptors = descriptors[key1].excluded.slice();
-            levelCheckedDescriptors.unshift(key1);
+            levelCheckedDescriptors = descriptors[key].excluded.slice();
+            levelCheckedDescriptors.unshift(key);
             descriptionsAndExclusions.push(levelCheckedDescriptors);
         }
     }
