@@ -28,18 +28,18 @@ const monsters = {
 function generateMonsterSet (level, pRegion, descriptors, monsters){
 
     let typesToCheck = [];  //initialized to an empty array
-    let levelCheckedDescriptors = [];  //initialized to an empty array
-    let descriptionsAndExclusions = [];  //initialized to an empty array
-    let monstersAndTypes = [];  //initialized to an empty array
+    let levelCheckedDescriptors = [];   
+    let descriptionsAndExclusions = [];     
+    let monstersAndTypes = [];  
     let len = 0;
-    let result = [];  //initialized to an empty array
+    let result = [];            
 
-    for (let key in monsters) {  //first time through the loop, key = 'goblin' | second time through, key = 'mermaid' | etc.
+    for (let key in monsters) {                            //first time through the loop, key = 'goblin' | second time through, key = 'mermaid' | etc.
         if (monsters[key].regions.indexOf(pRegion) >= 0){  //while key = 'goblin' searches the regions property of 'goblin' index by index for a match to pRegion
-            typesToCheck = monsters[key].types.slice();  //set the empty typesToCheck array to be a copy of the types array associated with 'goblin'
-            typesToCheck.unshift(key);  //sets the index 0 of the new typesToCheck array to be the name of the monster ('goblin') and shifts the types over one index
-            monstersAndTypes.push(typesToCheck);  //pushes the new typesToCheck array to the monstersAndTypes array for use outside of this (for(in)) loop
-        }  // console.log(monstersAndTypes); // ['goblin', 'dark', 'small']
+            typesToCheck = monsters[key].types.slice();    //set the empty typesToCheck array to be a copy of the types array associated with 'goblin'
+            typesToCheck.unshift(key);                     //sets index 0 of the new typesToCheck array to be the name of the monster ('goblin') and shifts the types over one index
+            monstersAndTypes.push(typesToCheck);           //pushes the new typesToCheck array to the monstersAndTypes array for use outside of this (for(in)) loop
+        }                                             // console.log(monstersAndTypes); // ['goblin', 'dark', 'small']
     }
 
     for (let key in descriptors) {
@@ -89,8 +89,9 @@ function generateMonster(){
     let encounter = group[Math.floor(Math.random()*group.length)];
 
     return encounter;
+    //[random tuple from the group array]
 }
 
-console.log(generateMonsterSet(8,'caves', descriptors, monsters));
 console.log(generateMonster());
+//probably looks like this: ['infernal', 'minotaur']
 
