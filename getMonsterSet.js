@@ -79,7 +79,9 @@ function generateMonsterSet (level, pRegion, descriptors, monsters){
                 }
             });
         });
+    console.log(result);  //[[ 'terrible', 'goblin' ], [ 'terrible', 'minotaur' ], [ 'infernal', 'minotaur' ]]
     return result;
+    
 }
 
 function generateMonster(){
